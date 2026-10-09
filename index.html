@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Laura Gereduz Agapito: neuroscience, physiotherapy and sport science.">
+<title>Laura Gereduz Agapito · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: researcher profile; header with key figures, a 2008-2026 trajectory strip across countries, then research, publications, presentations, education, clinical work */
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --ink:#1B1F2A; --muted:#5A6170; --line:#DADDE4; --soft:#ECEEF2;
+  --accent:#A8355C; --accent-soft:#F5E1E8; --on-accent:#FFFFFF;
+  --k-research:#A8355C; --k-clinical:#2C6B6F; --k-edu:#8A6A2C; --k-teach:#4F5AA0;
+  --shadow:0 1px 0 rgba(27,31,42,.06), 0 2px 6px rgba(27,31,42,.10);
+  --shadow-hi:0 2px 0 rgba(27,31,42,.08), 0 8px 18px rgba(27,31,42,.16);
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Karla", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13161D; --surface:#1A1E27; --ink:#E6E8EE; --muted:#9BA2B0; --line:#2B303C; --soft:#222733;
+    --accent:#E58AAA; --accent-soft:#3A2230; --on-accent:#1A1016;
+    --k-research:#E58AAA; --k-clinical:#7CC2C6; --k-edu:#D9B36E; --k-teach:#A3ACEB;
+    --shadow:0 1px 0 rgba(0,0,0,.35), 0 3px 8px rgba(0,0,0,.45);
+    --shadow-hi:0 2px 0 rgba(0,0,0,.4), 0 10px 22px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13161D; --surface:#1A1E27; --ink:#E6E8EE; --muted:#9BA2B0; --line:#2B303C; --soft:#222733;
+  --accent:#E58AAA; --accent-soft:#3A2230; --on-accent:#1A1016;
+  --k-research:#E58AAA; --k-clinical:#7CC2C6; --k-edu:#D9B36E; --k-teach:#A3ACEB;
+  --shadow:0 1px 0 rgba(0,0,0,.35), 0 3px 8px rgba(0,0,0,.45);
+  --shadow-hi:0 2px 0 rgba(0,0,0,.4), 0 10px 22px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.55; padding-inline:clamp(16px,4vw,48px); padding-block:0 64px}
+.wrap{max-width:1180px; margin-inline:auto}
+a{color:var(--accent)}
+a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display); text-wrap:balance; margin:0}
+
+/* Header */
+header.top{padding-block:56px 36px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:40px; align-items:end}
+.eyebrow{font-family:var(--f-mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 14px}
+h1{font-size:clamp(38px,5.6vw,62px); font-weight:600; line-height:1.03; letter-spacing:-.01em}
+.role{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 0; padding:0; list-style:none}
+.role li{font-size:14px; font-weight:600; padding:5px 12px; border-radius:999px; border:1px solid var(--line); background:var(--surface)}
+.role li:first-child{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.bio{max-width:64ch; margin:20px 0 0}
+.facts{display:grid; border-top:2px solid var(--ink); margin:0}
+.facts div{display:flex; justify-content:space-between; gap:16px; padding-block:10px; border-bottom:1px solid var(--line); font-size:14.5px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0; font-family:var(--f-mono); font-variant-numeric:tabular-nums; text-align:right}
+
+/* Navigation */
+nav.sections{position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:var(--bg); border-block:1px solid var(--line); display:flex; flex-wrap:wrap; gap:10px; padding-block:14px}
+nav.sections a{display:inline-flex; align-items:center; gap:8px; color:var(--ink); text-decoration:none; font-size:14.5px; font-weight:700; padding:9px 16px; border-radius:8px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow)}
+nav.sections a .n{font-family:var(--f-mono); font-size:11.5px; font-weight:500; color:var(--muted)}
+nav.sections a.on{background:var(--accent); border-color:var(--accent); color:var(--on-accent); box-shadow:var(--shadow-hi)}
+nav.sections a.on .n{color:var(--on-accent); opacity:.8}
+@media (prefers-reduced-motion:no-preference){
+  nav.sections a{transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease}
+  nav.sections a:hover{transform:translateY(-2px); box-shadow:var(--shadow-hi)}
+}
+@media (max-width:560px){ nav.sections{gap:8px} nav.sections a{padding:7px 11px; font-size:13.5px} }
+
+section{padding-block:48px 0; scroll-margin-top:72px}
+.sec-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px 24px; margin-bottom:20px}
+h2{font-size:clamp(25px,3vw,32px); font-weight:600}
+.sec-note{color:var(--muted); font-size:14.5px; margin:0; max-width:60ch}
+
+/* Trajectory */
+.legend{display:flex; flex-wrap:wrap; gap:8px 18px; margin-bottom:12px; font-size:13.5px; color:var(--muted)}
+.legend span{display:inline-flex; align-items:center; gap:7px}
+.legend i{width:12px; height:12px; border-radius:3px; display:inline-block}
+.track-box{overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:18px 18px 12px}
+.track{position:relative; min-width:960px}
+.axis{display:grid; grid-template-columns:repeat(19,1fr); font-family:var(--f-mono); font-size:11.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; margin-top:8px}
+.axis span{border-left:1px solid var(--line); padding-left:4px}
+.lane{position:relative; height:34px; margin-bottom:8px}
+.lane-label{position:absolute; left:0; top:-2px; font-size:11.5px; font-family:var(--f-mono); color:var(--muted); letter-spacing:.04em; text-transform:uppercase}
+.bar{position:absolute; top:15px; height:18px; border-radius:4px; box-shadow:0 0 0 1px var(--surface); font-size:11.5px; font-weight:700; color:var(--on-accent); padding:1px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height:16px}
+.countries{display:grid; grid-template-columns:repeat(19,1fr); margin-top:10px; font-size:12px; font-weight:600}
+.countries span{border-top:3px solid var(--ink); padding-top:4px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+
+/* Cards */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr)); gap:18px}
+article.card{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:22px; display:flex; flex-direction:column; gap:12px; min-width:0}
+article.card.feature{grid-column:1 / -1; border-color:var(--accent); box-shadow:var(--shadow)}
+.card-top{display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap}
+.tag{font-family:var(--f-mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:3px; border:1px solid currentColor; white-space:nowrap}
+.when{font-family:var(--f-mono); font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+h3{font-size:21px; font-weight:600; line-height:1.25}
+.feature h3{font-size:clamp(22px,2.6vw,28px)}
+.card p{margin:0; font-size:15px}
+dl.meta{display:grid; grid-template-columns:auto minmax(0,1fr); gap:4px 14px; margin:0; font-size:14px}
+dl.meta dt{color:var(--muted); font-family:var(--f-mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase; padding-top:2px}
+dl.meta dd{margin:0; min-width:0}
+.chips{display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:0; padding:0}
+.chips li{font-size:12.5px; background:var(--soft); padding:3px 8px; border-radius:3px}
+.result{border-left:3px solid var(--accent); background:var(--accent-soft); padding:10px 12px; font-size:14px}
+.result b{font-family:var(--f-mono); font-weight:500; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; display:block; color:var(--muted); margin-bottom:2px}
+.foot{margin-top:auto; padding-top:12px; border-top:1px dashed var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; font-size:13px; color:var(--muted)}
+.doi{font-family:var(--f-mono); font-size:13px; overflow-wrap:anywhere}
+.status::before{content:""; display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:1px; background:var(--muted)}
+.status.pub::before{background:var(--k-clinical)}
+.status.sent::before{background:var(--k-edu)}
+
+/* Lists */
+ol.items{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+ol.items li{display:grid; grid-template-columns:7.5em minmax(0,1fr); gap:4px 16px; padding-block:14px; border-bottom:1px solid var(--line)}
+ol.items .yr{font-family:var(--f-mono); font-size:12.5px; color:var(--muted); padding-top:3px; font-variant-numeric:tabular-nums}
+ol.items .body{min-width:0}
+ol.items .t{font-weight:700}
+ol.items .sub{color:var(--muted); font-size:14.5px}
+ol.items .kind{display:inline-block; font-family:var(--f-mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; margin-right:8px; padding:1px 6px; border-radius:3px; color:var(--on-accent)}
+@media (max-width:560px){ ol.items li{grid-template-columns:1fr} }
+
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:32px}
+.cols h3{font-size:19px; margin-bottom:10px}
+
+/* Contact */
+.contact{display:grid; border-top:2px solid var(--ink)}
+.contact div{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 20px; padding-block:12px; border-bottom:1px solid var(--line); align-items:center}
+.contact span:first-child{color:var(--muted); font-size:14px}
+.contact .val{font-family:var(--f-mono); font-size:14px; user-select:all; overflow-wrap:anywhere}
+.copy{font:inherit; font-size:13px; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:4px; padding:3px 10px; cursor:pointer; margin-left:10px}
+
+@media (max-width:820px){ header.top{grid-template-columns:1fr; padding-block:36px 28px; gap:28px} }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Portfolio · Neuroscience · Physiotherapy · Sport science</p>
+      <h1>Laura Gereduz Agapito</h1>
+      <ul class="role">
+        <li>PhD Student</li>
+        <li>Physiotherapist</li>
+        <li>Sport Scientist</li>
+      </ul>
+      <p class="bio">PhD student in Health Sciences and Engineering at Universidad de Valparaíso, Chile, working in the Neuronal Plasticity lab on how induced endometriosis affects hippocampal neuroinflammation, CA1 synaptic plasticity and memory in a murine model. Before research, more than a decade of clinical physiotherapy in Belgium and Switzerland, and a master's in motor science with a field study of elite female soccer players at the Schulthess Clinic in Zurich.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Peer-reviewed publications</dt><dd>1</dd></div>
+      <div><dt>Manuscripts submitted</dt><dd>1</dd></div>
+      <div><dt>Conference posters and talks</dt><dd>6</dd></div>
+      <div><dt>Years of clinical practice</dt><dd>2013 to 2025</dd></div>
+      <div><dt>Countries of practice</dt><dd>BE · CH · BO · CL</dd></div>
+      <div><dt>Languages</dt><dd>FR · ES · EN (B2)</dd></div>
+    </dl>
+  </header>
+
+  <nav class="sections" aria-label="Portfolio sections">
+    <a href="#trajectory"><span class="n">01</span>Trajectory</a>
+    <a href="#research"><span class="n">02</span>Research</a>
+    <a href="#publications"><span class="n">03</span>Publications</a>
+    <a href="#presentations"><span class="n">04</span>Presentations</a>
+    <a href="#education"><span class="n">05</span>Education</a>
+    <a href="#clinical"><span class="n">06</span>Clinical and teaching</a>
+    <a href="#contact"><span class="n">07</span>Contact</a>
+  </nav>
+
+  <section id="trajectory" aria-labelledby="h-traj">
+    <div class="sec-head">
+      <h2 id="h-traj">Trajectory, 2008 to 2026</h2>
+      <p class="sec-note">From clinical physiotherapy in Europe to sport science and laboratory neuroscience in Chile.</p>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--k-edu)"></i>Education</span>
+      <span><i style="background:var(--k-clinical)"></i>Clinical practice</span>
+      <span><i style="background:var(--k-research)"></i>Research</span>
+      <span><i style="background:var(--k-teach)"></i>Teaching and supervision</span>
+    </div>
+    <div class="track-box"><div class="track" id="track" role="img" aria-label="Timeline of education, clinical practice, research and teaching from 2008 to 2026"></div></div>
+  </section>
+
+  <section id="research" aria-labelledby="h-res">
+    <div class="sec-head">
+      <h2 id="h-res">Research</h2>
+      <p class="sec-note">Neuroscience, microbiome and human performance.</p>
+    </div>
+    <div class="grid" id="resgrid"></div>
+  </section>
+
+  <section id="publications" aria-labelledby="h-pub">
+    <div class="sec-head">
+      <h2 id="h-pub">Publications</h2>
+    </div>
+    <div class="grid" id="pubgrid"></div>
+  </section>
+
+  <section id="presentations" aria-labelledby="h-pres">
+    <div class="sec-head">
+      <h2 id="h-pres">Conference presentations and posters</h2>
+      <p class="sec-note">Endometriosis models, predictive modelling and psychobiotics, 2025 to 2026.</p>
+    </div>
+    <ol class="items" id="preslist"></ol>
+  </section>
+
+  <section id="education" aria-labelledby="h-edu">
+    <div class="sec-head"><h2 id="h-edu">Education and certifications</h2></div>
+    <div class="cols">
+      <div><h3>Degrees</h3><ol class="items" id="edulist"></ol></div>
+      <div><h3>Clinical certifications</h3><ol class="items" id="certlist"></ol></div>
+    </div>
+  </section>
+
+  <section id="clinical" aria-labelledby="h-cli">
+    <div class="sec-head">
+      <h2 id="h-cli">Clinical and teaching experience</h2>
+      <p class="sec-note">Physiotherapy across intensive care, paediatrics, geriatrics, orthopaedics, sport and obesity care.</p>
+    </div>
+    <ol class="items" id="clilist"></ol>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="sec-head"><h2 id="h-contact">Contact</h2></div>
+    <div class="contact">
+      <div><span>Email</span><span><span class="val" id="mail">laura.gereduzagapito@postgrado.uv.cl</span><button class="copy" id="copyMail" type="button">Copy</button></span></div>
+      <div><span>Phone</span><span class="val">+56 998 60 02 64</span></div>
+      <div><span>Affiliation</span><span>PhD Program in Health Sciences and Engineering, Universidad de Valparaíso, Valparaíso, Chile</span></div>
+      <div><span>Languages</span><span>French · Spanish · English (TOEIC B2)</span></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const K = {research:"var(--k-research)", clinical:"var(--k-clinical)", edu:"var(--k-edu)", teach:"var(--k-teach)"};
+
+/* Trajectory strip: years 2008-2026 (19 columns). Values are decimal years. */
+const Y0 = 2008, Y1 = 2027;
+const LANES = [
+  {label:"Degrees", items:[
+    {k:"edu", a:2008.67, b:2013.5, t:"BSc + MSc Physiotherapy, HEPL"},
+    {k:"edu", a:2021.67, b:2023.5, t:"MSc Motor Science, Lyon 1"},
+    {k:"edu", a:2025.17, b:2026.8, t:"PhD, UV"}
+  ]},
+  {label:"Certifications", items:[
+    {k:"edu", a:2013.0, b:2015.0, t:"Paediatric, ULB"},
+    {k:"edu", a:2015.0, b:2017.0, t:"OMT, ULiège"},
+    {k:"edu", a:2018.0, b:2024.9, t:"Maitland Concept 1, 2a, 2b"}
+  ]},
+  {label:"Clinical practice", items:[
+    {k:"clinical", a:2013.75, b:2019.42, t:"CHC Sainte-Élisabeth and private practice"},
+    {k:"clinical", a:2019.42, b:2023.17, t:"Private practices, Biel and Neuchâtel"},
+    {k:"clinical", a:2023.17, b:2025.17, t:"Obesity center, Lausanne"}
+  ]},
+  {label:"Research", items:[
+    {k:"research", a:2022.0, b:2023.67, t:"Human Performance Lab"},
+    {k:"research", a:2025.17, b:2025.67, t:"CMBi"},
+    {k:"research", a:2025.67, b:2026.8, t:"Fuenzalida Lab"}
+  ]},
+  {label:"Teaching", items:[
+    {k:"teach", a:2017.0, b:2026.8, t:"Internship supervisor, HEPL and ULiège"}
+  ]}
+];
+const COUNTRIES = [{a:2008.67,b:2019.42,t:"Belgium"},{a:2019.42,b:2025.17,t:"Switzerland"},{a:2025.17,b:Y1,t:"Chile"}];
+function pct(y){ return ((y - Y0) / (Y1 - Y0) * 100).toFixed(3) + "%"; }
+function renderTrack(){
+  let h = "";
+  for (const l of LANES){
+    h += `<div class="lane"><span class="lane-label">${esc(l.label)}</span>` +
+      l.items.map(it => `<span class="bar" title="${esc(it.t)}" style="left:${pct(it.a)}; width:calc(${pct(it.b)} - ${pct(it.a)}); background:${K[it.k]}">${esc(it.t)}</span>`).join("") + `</div>`;
+  }
+  h += `<div class="axis">` + Array.from({length:Y1 - Y0}, (_, i) => `<span>${String(Y0 + i).slice(2)}</span>`).join("") + `</div>`;
+  h += `<div style="position:relative; height:26px; margin-top:8px">` + COUNTRIES.map(c => `<span style="position:absolute; left:${pct(c.a)}; width:calc(${pct(c.b)} - ${pct(c.a)}); border-top:3px solid var(--ink); padding-top:4px; font-size:12px; font-weight:700; white-space:nowrap; overflow:hidden">${esc(c.t)}</span>`).join("") + `</div>`;
+  document.getElementById("track").innerHTML = h;
+}
+
+const RES = [
+ {feature:true, k:"PhD research project", when:"Feb 2026 to present", t:"Effect of induced endometriosis on hippocampal neuroinflammation, CA1 synaptic plasticity and memory in a murine model",
+  meta:[["Lab","Neuronal Plasticity (Fuenzalida Lab), Universidad de Valparaíso"],["Supervisors","Prof. Dr. Marco Fuenzalida and Prof. Dra. Samanta Thomas"]],
+  d:"Doctoral thesis linking a gynaecological inflammatory disease to brain function: how endometriosis induced in mice relates to neuroinflammation in the hippocampus, synaptic plasticity in the CA1 region and memory.",
+  chips:["Murine endometriosis model","Hippocampus","CA1 synaptic plasticity","Neuroinflammation","Memory"]},
+ {k:"Research internship", when:"Aug 2025 to Feb 2026", t:"Experimental mouse model of cognitive alterations in endometriosis",
+  meta:[["Lab","Neuronal Plasticity (Fuenzalida Lab), Universidad de Valparaíso"],["Supervisor","Prof. Dr. Marco Fuenzalida"]],
+  d:"Implemented the experimental mouse model used to investigate cognitive alterations associated with endometriosis, the groundwork for the doctoral project.",
+  chips:["Model implementation","Behavioural testing"]},
+ {k:"Research internship", when:"Mar 2025 to Aug 2025", t:"Microbiome and probiotics",
+  meta:[["Lab","Centro de Micro-Bioinnovación (CMBi), Faculty of Pharmacy, Universidad de Valparaíso"],["Supervisor","Prof. Dra. Samanta Thomas-Valdés"]],
+  d:"Research on the microbiome and probiotics using PCR analysis and chromatography techniques.",
+  chips:["PCR","Chromatography","Probiotics"]},
+ {k:"Master's research internship", when:"Jan 2022 to Aug 2023", t:"Muscle strength and performance after match-play in elite female soccer players",
+  meta:[["Lab","Human Performance Laboratory, Schulthess Clinic, Zurich"],["Supervisor","Dr. Nicola Maffiuletti"]],
+  d:"Field study with FC St. Gallen Frauen measuring muscle strength, physical performance and perceptual responses before and after competitive matches, leading to a first-author publication in the Journal of Strength and Conditioning Research.",
+  chips:["Field testing","Knee and hip strength","Jump and sprint","Perceptual questionnaires"]}
+];
+function renderRes(){
+  document.getElementById("resgrid").innerHTML = RES.map(a => `
+    <article class="card${a.feature ? " feature" : ""}">
+      <div class="card-top"><span class="tag" style="color:var(--k-research)">${esc(a.k)}</span><span class="when">${esc(a.when)}</span></div>
+      <h3>${esc(a.t)}</h3>
+      <dl class="meta">${a.meta.map(m => `<dt>${esc(m[0])}</dt><dd>${esc(m[1])}</dd>`).join("")}</dl>
+      <p>${esc(a.d)}</p>
+      <ul class="chips">${a.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>
+    </article>`).join("");
+}
+
+const PUBS = [
+ {k:"Original article", when:"2025", t:"Effects of soccer match-play on muscle strength, physical performance, and perceptual responses in elite female players",
+  cit:"Gereduz Agapito L, Brownstein CG, Maffiuletti NA. J Strength Cond Res. 2025;39(1):79-85.",
+  d:"Twelve Swiss elite players were tested before, immediately after and 48 hours after a 90-minute match for knee and hip strength, vertical jump and sprint time, with perceptual responses followed up to 72 hours.",
+  r:"Strength, jump and sprint performance dropped after the match and recovered by 48 hours. Knee flexors lost about 20 % of strength, more than hip adductors and abductors, and motivation to train and readiness to play had not recovered at 72 hours.",
+  doi:"10.1519/JSC.0000000000004934", st:"Published, first author", stc:"pub"},
+ {k:"Review", when:"Submitted", t:"Psychobiotics and food-derived neuroactives: pharmacological pathways to mental well-being",
+  cit:"Vidal Herrera N, Álvarez Villablanca D, Cerna C, Ahumada J, Rodriguez G, Cerda T, Jopia G, Gereduz L, Thomas-Valdés S, Fuenzalida M.",
+  d:"Manuscript on the pharmacological pathways through which psychobiotics and food-derived neuroactive compounds may influence mental well-being.",
+  st:"Submitted to Frontiers in Pharmacology", stc:"sent"}
+];
+function renderPubs(){
+  document.getElementById("pubgrid").innerHTML = PUBS.map(a => `
+    <article class="card">
+      <div class="card-top"><span class="tag" style="color:var(--accent)">${esc(a.k)}</span><span class="when">${esc(a.when)}</span></div>
+      <h3>${esc(a.t)}</h3>
+      <p style="color:var(--muted); font-size:14px">${esc(a.cit)}</p>
+      <p>${esc(a.d)}</p>
+      ${a.r ? `<div class="result"><b>Main findings</b>${esc(a.r)}</div>` : ""}
+      <div class="foot">
+        <span>${a.doi ? `<a class="doi" href="https://doi.org/${esc(a.doi)}" target="_blank" rel="noopener">doi.org/${esc(a.doi)}</a>` : ""}</span>
+        <span class="status ${a.stc}">${esc(a.st)}</span>
+      </div>
+    </article>`).join("");
+}
+
+const PRES = [
+ {y:"2026", kind:"Poster", t:"Optimización de un modelo murino de inducción de endometriosis para estudiar la neurofuncionalidad: implementación metodológica y resultados preliminares", s:"XXXVII Reunión Anual, Sociedad Chilena de Reproducción y Desarrollo. With G. Rodríguez, J. Varas Muñoz, Dr. S. San Martín, Dra. S. Thomas-Valdés and Dr. M. Fuenzalida Núñez."},
+ {y:"2026", kind:"Oral", t:"Optimización de un modelo murino de inducción de endometriosis para estudiar la neurofuncionalidad: implementación metodológica y resultados preliminares", s:"Research Days 2026, Faculty of Pharmacy, Universidad de Valparaíso."},
+ {y:"Nov 2025", kind:"Poster", t:"Development of a predictive model for the diagnosis of endometriosis: exploring the interconnections between clinical practice and diagnosis", s:"VIII Chilean Congress of Public Health and X Chilean Congress of Epidemiology. With Dr. D. Ortiz and Dr. R. Salas."},
+ {y:"2025", kind:"Poster", t:"Development of a predictive model for the diagnosis of endometriosis: exploring the interconnections between clinical practice and diagnosis", s:"Data Science Day 2025, Faculty of Engineering, Universidad de Valparaíso. With Dr. D. Ortiz and Dr. R. Salas."},
+ {y:"2025", kind:"Poster", t:"Symbiotic formulation containing maqui berry, inulin, and probiotics attenuates ketamine-induced cognitive and synaptic deficits in adolescent mice", s:"SOFARCHI 2025 (co-author). N. Vidal Herrera, D. Álvarez Villablanca, J. Ahumada Riveros, C. Cerna, L. Gereduz, G. Jopia, G. Rodríguez, S. Thomas-Valdés, M. Fuenzalida Núñez."},
+ {y:"2025", kind:"Oral", t:"Chromatography technique and behavioral evaluation in an experimental ketamine model", s:"Research Days 2025, Faculty of Pharmacy, Universidad de Valparaíso."}
+];
+const EDU = [
+ {y:"2025 to present", t:"PhD in Health Sciences and Engineering", s:"Faculty of Medicine, Universidad de Valparaíso, Chile"},
+ {y:"2021 to 2023", t:"Master's in Motor Science and Health: Research in Performance Optimization and Training", s:"Université Lyon 1, France"},
+ {y:"2008 to 2013", t:"Bachelor's and Master's in Physiotherapy", s:"Haute École de la Province de Liège (HEPL), Belgium. Thesis: tolerance of respiratory physiotherapy sessions by newborns in neonatal intensive care."}
+];
+const CERT = [
+ {y:"2018 to 2024", t:"Maitland Concept, Levels 1, 2a and 2b", s:"International Maitland Teachers Association"},
+ {y:"2015 to 2017", t:"University Certificate in Orthopaedic Manual Therapy", s:"ULiège, recognized by IFOMPT"},
+ {y:"2013 to 2015", t:"University Certificate in Paediatric Physiotherapy", s:"Université Libre de Bruxelles"}
+];
+const CLI = [
+ {y:"2023 to 2025", k:"clinical", t:"Physiotherapist, Medical-Surgical Center for Obesity, Lausanne (Switzerland)", s:"Chronic obesity care; metabolic assessments, ergometry and bioelectrical impedance analysis."},
+ {y:"2019 to 2023", k:"clinical", t:"Physiotherapist, private practices, Biel/Bienne and Neuchâtel (Switzerland)", s:"Clinical assessment and management of athletic patients."},
+ {y:"2017", k:"clinical", t:"Volunteer paediatric physiotherapist, Bolivia", s:"School for children and adolescents with neurological disorders."},
+ {y:"2017 to present", k:"teach", t:"Internship supervisor, HEPL and ULiège (Belgium)", s:"Supervision of master's students in physiotherapy and orthopaedic manual therapy; examination of master's theses."},
+ {y:"2013 to 2019", k:"clinical", t:"Physiotherapist, CHC Sainte-Élisabeth Clinic (Heusy) and private practice (Belgium)", s:"Inpatient and outpatient care: geriatrics, intensive care, neuropaediatrics and orthopaedic manual therapy."}
+];
+function list(id, rows, kindFn){
+  document.getElementById(id).innerHTML = rows.map(r => `
+    <li><span class="yr">${esc(r.y)}</span>
+      <span class="body">${kindFn ? kindFn(r) : ""}<span class="t">${esc(r.t)}</span><br><span class="sub">${esc(r.s)}</span></span></li>`).join("");
+}
+
+renderTrack(); renderRes(); renderPubs();
+list("preslist", PRES, r => `<span class="kind" style="background:${r.kind === "Oral" ? "var(--k-teach)" : "var(--k-research)"}">${esc(r.kind)}</span>`);
+list("edulist", EDU); list("certlist", CERT);
+list("clilist", CLI, r => `<span class="kind" style="background:${K[r.k]}">${r.k === "teach" ? "Teaching" : "Clinical"}</span>`);
+
+document.getElementById("copyMail").addEventListener("click", e => {
+  const btn = e.currentTarget, txt = document.getElementById("mail").textContent;
+  const done = ok => { btn.textContent = ok ? "Copied" : "Selected"; setTimeout(() => btn.textContent = "Copy", 1600); };
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try { navigator.clipboard.writeText(txt).then(() => done(true), () => { sel(); done(false); }); } catch(_) { sel(); done(false); }
+});
+
+(function(){
+  const links = [...document.querySelectorAll("nav.sections a")];
+  const mark = id => links.forEach(a => { const on = a.getAttribute("href") === "#" + id; a.classList.toggle("on", on); on ? a.setAttribute("aria-current","true") : a.removeAttribute("aria-current"); });
+  mark("trajectory");
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(es => {
+    const vis = es.filter(e => e.isIntersecting).sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    if (vis.length) mark(vis[0].target.id);
+  }, {rootMargin:"-80px 0px -55% 0px"});
+  links.forEach(a => { const el = document.querySelector(a.getAttribute("href")); if (el) io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
